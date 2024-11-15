@@ -3,45 +3,43 @@ package com.example.practicakotlin
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.practicakotlin.ui.theme.PracticaKotlinTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             PracticaKotlinTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                NavigationGraph()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PracticaKotlinTheme {
-        Greeting("Android")
+fun NavigationGraph() {
+    val navigationController = rememberNavController()
+    NavHost(
+        navController = navigationController,
+        startDestination = Routes.Screen1.route
+    ) {
+        composable(Routes.Screen1.route) { Screen1(navigationController) }
+        composable(Routes.Screen2.route) { Screen2(navigationController) }
+        composable(Routes.Screen3.route) { Screen3(navigationController) }
+        composable(
+            Routes.Screen4.route,
+            arguments = listOf(navArgument("secretNumber") { type = NavType.IntType })
+        ) { backStackEntry ->
+            Screen4(
+                navigationController,
+                backStackEntry.arguments?.getInt("secretNumber") ?: 0
+            )
+        }
     }
 }
