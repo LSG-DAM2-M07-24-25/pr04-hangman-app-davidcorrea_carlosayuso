@@ -1,10 +1,13 @@
 package com.example.practicakotlin
 
 sealed class Routes(val route: String) {
-    object Screen1:Routes("Screen1")
-    object Screen2:Routes("Screen2")
-    object Screen3:Routes("Screen3")
-    object Screen4:Routes("Screen4/{secretNumber}"){
-        fun createRoute(secretNumber:Int) = "Screen4/$secretNumber"
+    object Pantalla1:Routes("pantalla1")
+    object Pantalla2:Routes("pantalla2")
+    object Pantalla3:Routes("pantalla3/{dificultad}"){
+        fun createRoute(dificultad:String) = "pantalla3/$dificultad"
+
+    }
+    object Pantalla4:Routes("pantalla4/{secretNumber}"){
+        fun createRoute(secretNumber:Int) = "pantalla4/$secretNumber"
     }
 }

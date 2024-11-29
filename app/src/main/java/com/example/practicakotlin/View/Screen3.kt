@@ -13,7 +13,7 @@ import androidx.navigation.NavHostController
 import com.example.practicakotlin.Routes
 
 @Composable
-fun Screen3(navController: NavHostController) {
+fun Screen3(navController: NavHostController, dificultad:String) {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Green)) {
@@ -21,6 +21,6 @@ fun Screen3(navController: NavHostController) {
             text = "Screen3",
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navController.navigate(Routes.Screen4.createRoute(121)) })
+                .clickable { navController.navigate(Routes.Pantalla4.createRoute(121)) })
     }
 }
