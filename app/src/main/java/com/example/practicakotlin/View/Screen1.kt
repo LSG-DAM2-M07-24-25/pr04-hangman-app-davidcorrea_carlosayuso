@@ -18,7 +18,7 @@ fun Screen1(navController: NavHostController) {
         .fillMaxSize()
         .background(Color.Green)) {
         Text(text = "Screen1", modifier = Modifier.align(Alignment.Center).clickable {
-            navController.navigate(Routes.Screen2.route)
+            navController.navigate(Routes.Pantalla2.route)
         })
     }
 }
