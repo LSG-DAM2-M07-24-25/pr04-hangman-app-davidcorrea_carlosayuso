@@ -3,16 +3,25 @@ package com.example.practicakotlin.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,53 +39,62 @@ import androidx.navigation.NavHostController
 import com.example.practicakotlin.R
 import com.example.practicakotlin.Routes
 
-@Preview
 @Composable
 fun Screen2(navController: NavController) {
+    var selectedDificultad by remember { mutableStateOf("") }
+
     Box(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         Column(
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
                 painter = painterResource(id = R.drawable.logo_colgado),
                 contentDescription = "Logo",
-                modifier = Modifier.align((Alignment.CenterHorizontally))
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
-            Dificultad {}
-            //Botón Play para avanzar a la siguiente pantalla
+            Dificultad { dificultad ->
+                selectedDificultad = dificultad
+            }
+            // Botón Play para avanzar a la siguiente pantalla
             Button(
-                onClick = { //navController.navigate(Routes.Pantalla3.createRoute(""))
-                }
-            ) { }
-            //Botón Ayuda para mostrar reglas
+                onClick = { 
+                    navController.navigate(Routes.Pantalla3.createRoute(selectedDificultad))
+                },
+                enabled = selectedDificultad.isNotEmpty()
+            ) {
+                Text("Jugar")
+            }
+            Spacer(modifier = Modifier.size(30.dp)) // Botón Ayuda para mostrar reglas
             Button(
                 onClick = {}
-            ) { }
+            ) {
+                Text("Reglas")
+            }
         }
     }
 }
 
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun ButtonHelp(content: @Composable () -> Unit) {
-    TODO("Not yet implemented")
+fun PreviewScreen2() {
+   // Screen2()
 }
 
-@Composable
-fun ButtonPlay( navController: NavController) {
 
-}
+
 
 @Composable
-fun Dificultad(content: @Composable () -> Unit) {
+fun Dificultad(onDificultadSelected: (String) -> Unit) {
     var selectedText by remember { mutableStateOf("") }
     var expanded by remember { mutableStateOf(false) }
     val dificultades = listOf("Fácil", "Medio", "Difícil")
+
     Column(
-        Modifier
-            .padding(20.dp, 80.dp)
+        Modifier.padding(20.dp, 80.dp)
     ) {
         OutlinedTextField(
             value = selectedText,
@@ -85,18 +103,19 @@ fun Dificultad(content: @Composable () -> Unit) {
             readOnly = true,
             modifier = Modifier
                 .clickable { expanded = true }
-                .background(Color.DarkGray)
+                .background(Color.Black)
         )
 
-        DropdownMenu(expanded = expanded,
-            onDismissRequest = { expanded = false },
-            modifier = Modifier.background(Color.Black)) {
+        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }, modifier = Modifier.background(Color.Black)) {
             dificultades.forEach { dificultad ->
-                DropdownMenuItem(text = { Text(text = dificultad) },
+                DropdownMenuItem(
+                    text = { Text(text = dificultad, color = Color.White) },
                     onClick = {
                         expanded = false
                         selectedText = dificultad
-                    })
+                        onDificultadSelected(dificultad)
+                    }
+                )
             }
         }
     }
