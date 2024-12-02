@@ -22,7 +22,7 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean) {
                 .align(Alignment.Center)
                 .clickable
                 { navController.navigate(Routes.Screen1.route) })
-                
+
          */
     }
 }
