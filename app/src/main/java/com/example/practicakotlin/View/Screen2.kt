@@ -30,7 +30,6 @@ import androidx.navigation.NavHostController
 import com.example.practicakotlin.R
 import com.example.practicakotlin.Routes
 
-@Preview
 @Composable
 fun Screen2(navController: NavController) {
     Box(
@@ -48,7 +47,7 @@ fun Screen2(navController: NavController) {
             Dificultad {}
             //Botón Play para avanzar a la siguiente pantalla
             Button(
-                onClick = { //navController.navigate(Routes.Pantalla3.createRoute(""))
+                onClick = { navController.navigate(Routes.Pantalla3.createRoute("facil"))
                 }
             ) { }
             //Botón Ayuda para mostrar reglas
