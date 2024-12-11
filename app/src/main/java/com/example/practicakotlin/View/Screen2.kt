@@ -20,6 +20,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -30,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -42,6 +44,9 @@ import com.example.practicakotlin.Routes
 @Composable
 fun Screen2(navController: NavController) {
     var selectedDificultad by remember { mutableStateOf("") }
+    var showDialog by remember { mutableStateOf(false) }
+    val iconPainter = painterResource(id = R.drawable._60172)
+    val reglasDelJuego = "Reglas del juego:\n\n1. Selecciona la dificultad.\n2. Completa las palabras antes de que el muñeco sea colgado.\n3. Diviértete y desafía tus habilidades."
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -70,9 +75,17 @@ fun Screen2(navController: NavController) {
             }
             Spacer(modifier = Modifier.size(30.dp)) // Botón Ayuda para mostrar reglas
             Button(
-                onClick = {}
+                onClick = {showDialog = true}
             ) {
                 Text("Reglas")
+            }
+            if(showDialog){
+                AlertDialogExample(onDismissRequest = { showDialog = false },
+                    onConfirmation = {  showDialog = false },
+                    dialogTitle = "Reglas del juego",
+                    dialogText = reglasDelJuego,
+                    icon = iconPainter)
+
             }
         }
     }
@@ -119,4 +132,46 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
             }
         }
     }
+}
+@Composable
+fun AlertDialogExample(
+
+    onDismissRequest: () -> Unit,
+    onConfirmation: () -> Unit,
+    dialogTitle: String,
+    dialogText: String,
+    icon: Painter,
+) {
+    AlertDialog(
+        icon = {
+            Icon(icon, contentDescription = "Example Icon")
+        },
+        title = {
+            Text(text = dialogTitle)
+        },
+        text = {
+            Text(text = dialogText)
+        },
+        onDismissRequest = {
+            onDismissRequest()
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onConfirmation()
+                }
+            ) {
+                Text("Confirm")
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = {
+                    onDismissRequest()
+                }
+            ) {
+                Text("Dismiss")
+            }
+        }
+    )
 }
