@@ -29,11 +29,11 @@ fun Screen3(navController: NavHostController, dificultad: String) {
         contentAlignment = Alignment.Center // Centra el contenido dentro del contenedor
     ) {
         ConstraintLayout {
-            val primeraLinea = createGuidelineFromTop(0.2f) // Primera línea de botones
-            val segundaLinea = createGuidelineFromTop(0.35f) // Mover la segunda línea más abajo
+            val primeraLinea = createGuidelineFromTop(0.0f) // Primera línea de botones
+            val segundaLinea = createGuidelineFromTop(0.25f) // Mover la segunda línea más abajo
             val terceraLinea = createGuidelineFromTop(0.5f) // Primera línea de botones
-            val cuartaLinea = createGuidelineFromTop(0.65f) // Primera línea de botones
-            val quintaLinea = createGuidelineFromTop(0.8f) // Primera línea de botones
+            val cuartaLinea = createGuidelineFromTop(0.75f) // Primera línea de botones
+            val quintaLinea = createGuidelineFromTop(1.0f) // Primera línea de botones
             val (a, b, c, d, e, f) = createRefs()
             val (g, h, i, j, k, l) = createRefs()
             val (m, n, ñ, o, p, q) = createRefs()
@@ -418,6 +418,53 @@ fun Screen3(navController: NavHostController, dificultad: String) {
                 shape = RoundedCornerShape(8.dp),
             ) {
                 Text("W",
+                    color = Color.Black
+                )
+            }
+
+            OutlinedButton(
+                onClick = { /* Acción para el botón magenta */ },
+                modifier = Modifier
+                    .width(60.dp)
+                    .height(60.dp)
+                    .constrainAs(x) {
+                        top.linkTo(quintaLinea) // Usamos la segunda línea aquí
+                    },
+                shape = RoundedCornerShape(8.dp),
+            ) {
+                Text("X",
+                    color = Color.Black
+                )
+            }
+
+            OutlinedButton(
+                onClick = { /* Acción para el botón magenta */ },
+                modifier = Modifier
+                    .width(60.dp)
+                    .height(60.dp)
+                    .constrainAs(y) {
+                        top.linkTo(quintaLinea) // Usamos la segunda línea aquí
+                        start.linkTo(x.end)
+                    },
+                shape = RoundedCornerShape(8.dp),
+            ) {
+                Text("Y",
+                    color = Color.Black
+                )
+            }
+
+            OutlinedButton(
+                onClick = { /* Acción para el botón magenta */ },
+                modifier = Modifier
+                    .width(60.dp)
+                    .height(60.dp)
+                    .constrainAs(z) {
+                        top.linkTo(quintaLinea) // Usamos la segunda línea aquí
+                        start.linkTo(y.end)
+                    },
+                shape = RoundedCornerShape(8.dp),
+            ) {
+                Text("Z",
                     color = Color.Black
                 )
             }

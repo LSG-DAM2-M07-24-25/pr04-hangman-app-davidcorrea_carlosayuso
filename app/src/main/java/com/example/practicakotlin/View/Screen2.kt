@@ -61,6 +61,7 @@ fun Screen2(navController: NavController) {
             }
             // Botón Play para avanzar a la siguiente pantalla
             Button(
+
                 onClick = { 
                     navController.navigate(Routes.Pantalla3.createRoute(selectedDificultad))
                 },
