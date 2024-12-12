@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,12 +24,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.example.practicakotlin.R
 import com.example.practicakotlin.Routes
 import com.example.practicakotlin.ViewModel.PalabrasViewModel
+import kotlin.random.Random
+
+
 
 @Composable
 fun Screen3(
@@ -39,6 +45,8 @@ fun Screen3(
     var intentos by remember { mutableStateOf(5) }
     var deshabilitarBotones by remember { mutableStateOf(setOf<Char>()) }
     var haGanado by remember { mutableStateOf(false) }
+    var palabraSeleccionada by remember { mutableStateOf("") }
+    var palabraMostrada by remember { mutableStateOf("") }
 
     if (intentos == 0){
         navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad))
@@ -46,7 +54,13 @@ fun Screen3(
 
     LaunchedEffect(dificultad) {
         viewModel.cargarPalabras(dificultad)
+        val palabras = viewModel.palabras.value ?: emptyList()
+        if (palabras.isNotEmpty()) {
+            palabraSeleccionada = palabras[Random.nextInt(palabras.size)]
+            palabraMostrada = "_ ".repeat(palabraSeleccionada.length).trim()
+        }
     }
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -70,10 +84,33 @@ fun Screen3(
                 .height(250.dp)
         )
 
+        // Mostrar palabra como guiones bajos
+        Text(
+            text = palabraMostrada,
+            fontSize = 30.sp, // Ajusta el tamaño de fuente aquí
+            fontWeight = FontWeight.Bold, // Opcional: haz que el texto sea más grueso
+            modifier = Modifier.padding(16.dp)
+        )
+
+
         fun clickLetras(letra: Char) {
             deshabilitarBotones += letra
-            intentos--
+            if (letra in palabraSeleccionada) {
+                val nuevaPalabraMostrada = palabraSeleccionada.map {
+                    if (it in deshabilitarBotones) it else '_'
+                }.joinToString(" ")
+
+                palabraMostrada = nuevaPalabraMostrada
+
+                if (!nuevaPalabraMostrada.contains('_')) {
+                    haGanado = true
+                    navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad))
+                }
+            } else {
+                intentos--
+            }
         }
+
         Box(
 
             modifier = Modifier.weight(1f),
@@ -605,6 +642,8 @@ fun Screen3(
         }
         Text(
             text = "Intentos: $intentos",
+            fontSize = 30.sp, // Ajusta el tamaño de fuente aquí
+            fontWeight = FontWeight.Bold, // Opcional: haz que el texto sea más grueso
             modifier = Modifier.padding(16.dp)
         )
     }

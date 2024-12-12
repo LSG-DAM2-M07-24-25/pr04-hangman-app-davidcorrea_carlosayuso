@@ -6,12 +6,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.practicakotlin.Routes
 
@@ -21,7 +25,7 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
     var info: String
 
     if (intentos == 0) {
-        mensaje = "HAS PERDIDO "
+        mensaje = "HAS PERDIDO"
     } else {
         mensaje = "FELICIDADES"
     }
@@ -33,10 +37,15 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
             .fillMaxSize()
             .background(Color.Gray)
     ){
-        Text(text = mensaje)
+        Text(
+            text = mensaje,
+            fontSize = 30.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(16.dp)
+        )
 
         if (intentos > 0){
-            info = "Te ha tomado " + intentos + " intentos"
+            info = "Te ha quedado " + intentos + " intentos"
             Text(text = info)
         }
 
@@ -45,7 +54,7 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
                 navController.navigate(Routes.Pantalla3.createRoute(dificultad))
             }
         ) {
-            Text(text = "Volver a intentar")
+            Text(text = "Jugar de nuevo")
         }
 
         Button(
