@@ -1,5 +1,6 @@
 package com.example.practicakotlin.View
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -111,6 +113,7 @@ fun Screen3(
             }
         }
 
+
         Box(
 
             modifier = Modifier.weight(1f),
@@ -134,6 +137,7 @@ fun Screen3(
                         clickLetras('A')
                     },
                     enabled = 'A' !in deshabilitarBotones,
+                    border = if ('A' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -141,6 +145,10 @@ fun Screen3(
                             top.linkTo(primeraLinea)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('A' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "A",
                         color = Color.Black
@@ -152,6 +160,7 @@ fun Screen3(
                         clickLetras('B')
                     },
                     enabled = 'B' !in deshabilitarBotones,
+                    border = if ('B' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -160,6 +169,10 @@ fun Screen3(
                             start.linkTo(a.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('B' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "B",
                         color = Color.Black
@@ -171,6 +184,7 @@ fun Screen3(
                         clickLetras('C')
                     },
                     enabled = 'C' !in deshabilitarBotones,
+                    border = if ('C' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -179,6 +193,10 @@ fun Screen3(
                             start.linkTo(b.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('C' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "C",
                         color = Color.Black
@@ -190,6 +208,7 @@ fun Screen3(
                         clickLetras('D')
                     },
                     enabled = 'D' !in deshabilitarBotones,
+                    border = if ('D' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -198,6 +217,10 @@ fun Screen3(
                             start.linkTo(c.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('D' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "D",
                         color = Color.Black
@@ -209,6 +232,7 @@ fun Screen3(
                         clickLetras('E')
                     },
                     enabled = 'E' !in deshabilitarBotones,
+                    border = if ('E' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -217,6 +241,10 @@ fun Screen3(
                             start.linkTo(d.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('E' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "E",
                         color = Color.Black
@@ -228,6 +256,7 @@ fun Screen3(
                         clickLetras('F')
                     },
                     enabled = 'F' !in deshabilitarBotones,
+                    border = if ('F' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -236,6 +265,10 @@ fun Screen3(
                             start.linkTo(e.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('F' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("F",
                         color = Color.Black
@@ -248,6 +281,7 @@ fun Screen3(
                         clickLetras('G')
                     },
                     enabled = 'G' !in deshabilitarBotones,
+                    border = if ('G' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -255,6 +289,10 @@ fun Screen3(
                             top.linkTo(segundaLinea) // Usamos la segunda línea aquí
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('G' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "G",
                         color = Color.Black
@@ -266,6 +304,7 @@ fun Screen3(
                         clickLetras('H')
                     },
                     enabled = 'H' !in deshabilitarBotones,
+                    border = if ('H' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -274,6 +313,10 @@ fun Screen3(
                             start.linkTo(g.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('H' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "H",
                         color = Color.Black
@@ -285,6 +328,7 @@ fun Screen3(
                         clickLetras('I')
                     },
                     enabled = 'I' !in deshabilitarBotones,
+                    border = if ('I' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -293,6 +337,10 @@ fun Screen3(
                             start.linkTo(h.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('I' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "I",
                         color = Color.Black
@@ -304,6 +352,7 @@ fun Screen3(
                         clickLetras('J')
                     },
                     enabled = 'J' !in deshabilitarBotones,
+                    border = if ('J' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -312,6 +361,10 @@ fun Screen3(
                             start.linkTo(i.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('J' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "J",
                         color = Color.Black
@@ -323,6 +376,7 @@ fun Screen3(
                         clickLetras('K')
                     },
                     enabled = 'K' !in deshabilitarBotones,
+                    border = if ('K' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -331,6 +385,10 @@ fun Screen3(
                             start.linkTo(j.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('K' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "K",
                         color = Color.Black
@@ -342,6 +400,7 @@ fun Screen3(
                         clickLetras('L')
                     },
                     enabled = 'L' !in deshabilitarBotones,
+                    border = if ('L' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -350,6 +409,10 @@ fun Screen3(
                             start.linkTo(k.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('L' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("L",
                         color = Color.Black
@@ -361,6 +424,7 @@ fun Screen3(
                         clickLetras('M')
                     },
                     enabled = 'M' !in deshabilitarBotones,
+                    border = if ('M' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -368,6 +432,10 @@ fun Screen3(
                             top.linkTo(terceraLinea)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('M' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "M",
                         color = Color.Black
@@ -379,6 +447,7 @@ fun Screen3(
                         clickLetras('N')
                     },
                     enabled = 'N' !in deshabilitarBotones,
+                    border = if ('N' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -387,6 +456,10 @@ fun Screen3(
                             start.linkTo(m.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('N' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "N",
                         color = Color.Black
@@ -398,6 +471,7 @@ fun Screen3(
                         clickLetras('Ñ')
                     },
                     enabled = 'Ñ' !in deshabilitarBotones,
+                    border = if ('Ñ' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -406,6 +480,10 @@ fun Screen3(
                             start.linkTo(n.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('Ñ' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "Ñ",
                         color = Color.Black
@@ -417,6 +495,7 @@ fun Screen3(
                         clickLetras('O')
                     },
                     enabled = 'O' !in deshabilitarBotones,
+                    border = if ('O' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -425,6 +504,10 @@ fun Screen3(
                             start.linkTo(ñ.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('O' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "O",
                         color = Color.Black
@@ -436,6 +519,7 @@ fun Screen3(
                         clickLetras('P')
                     },
                     enabled = 'P' !in deshabilitarBotones,
+                    border = if ('P' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -444,6 +528,10 @@ fun Screen3(
                             start.linkTo(o.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('P' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "P",
                         color = Color.Black
@@ -455,6 +543,7 @@ fun Screen3(
                         clickLetras('Q')
                     },
                     enabled = 'Q' !in deshabilitarBotones,
+                    border = if ('Q' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -463,6 +552,10 @@ fun Screen3(
                             start.linkTo(p.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('Q' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("Q",
                         color = Color.Black
@@ -475,6 +568,7 @@ fun Screen3(
                         clickLetras('R')
                     },
                     enabled = 'R' !in deshabilitarBotones,
+                    border = if ('R' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -482,6 +576,10 @@ fun Screen3(
                             top.linkTo(cuartaLinea) // Usamos la segunda línea aquí
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('R' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "R",
                         color = Color.Black
@@ -493,6 +591,7 @@ fun Screen3(
                         clickLetras('S')
                     },
                     enabled = 'S' !in deshabilitarBotones,
+                    border = if ('S' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -501,6 +600,10 @@ fun Screen3(
                             start.linkTo(r.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('S' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "S",
                         color = Color.Black
@@ -512,6 +615,7 @@ fun Screen3(
                         clickLetras('T')
                     },
                     enabled = 'T' !in deshabilitarBotones,
+                    border = if ('T' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -520,6 +624,10 @@ fun Screen3(
                             start.linkTo(s.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('T' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "T",
                         color = Color.Black
@@ -531,6 +639,7 @@ fun Screen3(
                         clickLetras('U')
                     },
                     enabled = 'U' !in deshabilitarBotones,
+                    border = if ('U' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -539,6 +648,10 @@ fun Screen3(
                             start.linkTo(t.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('U' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "U",
                         color = Color.Black
@@ -550,6 +663,7 @@ fun Screen3(
                         clickLetras('V')
                     },
                     enabled = 'V' !in deshabilitarBotones,
+                    border = if ('V' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -558,6 +672,10 @@ fun Screen3(
                             start.linkTo(u.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('V' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text(text = "V",
                         color = Color.Black
@@ -569,6 +687,7 @@ fun Screen3(
                         clickLetras('W')
                     },
                     enabled = 'W' !in deshabilitarBotones,
+                    border = if ('W' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -577,6 +696,10 @@ fun Screen3(
                             start.linkTo(v.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('W' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("W",
                         color = Color.Black
@@ -588,6 +711,7 @@ fun Screen3(
                         clickLetras('X')
                     },
                     enabled = 'X' !in deshabilitarBotones,
+                    border = if ('X' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -595,6 +719,10 @@ fun Screen3(
                             top.linkTo(quintaLinea) // Usamos la segunda línea aquí
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('X' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("X",
                         color = Color.Black
@@ -606,6 +734,7 @@ fun Screen3(
                         clickLetras('Y')
                     },
                     enabled = 'Y' !in deshabilitarBotones,
+                    border = if ('Y' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -614,6 +743,10 @@ fun Screen3(
                             start.linkTo(x.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('Y' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("Y",
                         color = Color.Black
@@ -625,6 +758,7 @@ fun Screen3(
                         clickLetras('Z')
                     },
                     enabled = 'Z' !in deshabilitarBotones,
+                    border = if ('Z' in deshabilitarBotones) BorderStroke(1.dp, Color.Red) else BorderStroke(0.dp, Color.Black),
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -633,6 +767,10 @@ fun Screen3(
                             start.linkTo(y.end)
                         },
                     shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = if ('Z' in deshabilitarBotones) Color.Black else Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
                     Text("Z",
                         color = Color.Black

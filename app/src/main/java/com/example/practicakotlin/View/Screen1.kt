@@ -37,7 +37,7 @@ fun Screen1(navController: NavHostController) {
             animationSpec =  tween(durationMillis = 3500)
         )
 
-        delay(2000)
+        //delay(2000)
 
         navController.navigate(Routes.Pantalla2.route)
     }
