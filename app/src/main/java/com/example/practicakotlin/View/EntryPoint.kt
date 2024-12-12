@@ -58,7 +58,8 @@ fun EntryPoint(navigationController: NavHostController, palabrasViewModel: Palab
                 navController = navigationController,
                 intentos = backStackEntry.arguments?.getInt("intentos") ?: 0,
                 haGanado = backStackEntry.arguments?.getBoolean("haGanado") ?: false,
-                dificultad = backStackEntry.arguments?.getString("dificultad").orEmpty()
+                dificultad = backStackEntry.arguments?.getString("dificultad").orEmpty(),
+                palabraSeleccionada = backStackEntry.arguments?.getString("palabra").orEmpty()
 
             )
         }
