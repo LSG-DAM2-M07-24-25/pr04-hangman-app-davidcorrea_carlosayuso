@@ -20,14 +20,16 @@ import androidx.navigation.NavController
 import com.example.practicakotlin.Routes
 
 @Composable
-fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificultad:String) {
+fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificultad:String, palabraSeleccionada:String) {
     var mensaje: String
     var info: String
+    var palabra: String
 
     if (intentos == 0) {
         mensaje = "HAS PERDIDO"
+        palabra = palabraSeleccionada
     } else {
-        mensaje = "FELICIDADES"
+        mensaje = "¡FELICIDADES!"
     }
 
     Column(
@@ -39,14 +41,27 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
     ){
         Text(
             text = mensaje,
-            fontSize = 30.sp,
+            fontSize = 45.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(16.dp)
         )
 
-        if (intentos > 0){
-            info = "Te ha quedado " + intentos + " intentos"
-            Text(text = info)
+        if (intentos == 0){
+            Text(text = "La palabra era: " + palabraSeleccionada,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(16.dp))
+        }
+
+        if (intentos == 1){
+            info = "Te ha quedado " + intentos + " intento"
+            Text(text = info,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(16.dp))
+        }else if (intentos > 1){
+            info = "Te han quedado " + intentos + " intentos"
+            Text(text = info,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(16.dp))
         }
 
         Button(

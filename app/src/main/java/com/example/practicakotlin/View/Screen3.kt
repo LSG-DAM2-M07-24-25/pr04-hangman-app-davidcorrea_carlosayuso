@@ -51,7 +51,7 @@ fun Screen3(
     var palabraMostrada by remember { mutableStateOf("") }
 
     if (intentos == 0){
-        navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad))
+        navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad, palabraSeleccionada))
     }
 
     LaunchedEffect(dificultad) {
@@ -106,7 +106,7 @@ fun Screen3(
 
                 if (!nuevaPalabraMostrada.contains('_')) {
                     haGanado = true
-                    navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad))
+                    navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad, palabraSeleccionada))
                 }
             } else {
                 intentos--
