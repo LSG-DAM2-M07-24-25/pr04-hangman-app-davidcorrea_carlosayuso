@@ -36,6 +36,7 @@ fun Screen3(
     dificultad: String
 )  {
     var intentos by remember { mutableStateOf(5) }
+    var deshabilitarBotones by remember { mutableStateOf(setOf<Char>()) }
 
     LaunchedEffect(dificultad) {
         viewModel.cargarPalabras(dificultad)
@@ -63,7 +64,12 @@ fun Screen3(
                 .height(250.dp)
         )
 
+        fun clickLetras(letra: Char) {
+            deshabilitarBotones += letra
+            intentos--
+        }
         Box(
+
             modifier = Modifier.weight(1f),
             contentAlignment = Center
         ) {
@@ -82,8 +88,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('A')
                     },
+                    enabled = 'A' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -99,8 +106,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('B')
                     },
+                    enabled = 'B' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -117,8 +125,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('C')
                     },
+                    enabled = 'C' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -135,8 +144,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('D')
                     },
+                    enabled = 'D' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -153,8 +163,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('E')
                     },
+                    enabled = 'E' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -171,8 +182,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('F')
                     },
+                    enabled = 'F' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -190,8 +202,9 @@ fun Screen3(
                 // Segunda línea de botones
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('G')
                     },
+                    enabled = 'G' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -207,8 +220,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('H')
                     },
+                    enabled = 'H' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -225,8 +239,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('I')
                     },
+                    enabled = 'I' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -243,8 +258,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('J')
                     },
+                    enabled = 'J' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -261,8 +277,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('K')
                     },
+                    enabled = 'K' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -279,8 +296,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('L')
                     },
+                    enabled = 'L' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -297,8 +315,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('M')
                     },
+                    enabled = 'M' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -314,8 +333,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('N')
                     },
+                    enabled = 'N' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -332,8 +352,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('Ñ')
                     },
+                    enabled = 'Ñ' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -350,8 +371,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('O')
                     },
+                    enabled = 'O' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -368,8 +390,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('P')
                     },
+                    enabled = 'P' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -386,8 +409,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('Q')
                     },
+                    enabled = 'Q' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -405,8 +429,9 @@ fun Screen3(
                 // Segunda línea de botones
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('R')
                     },
+                    enabled = 'R' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -422,8 +447,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('S')
                     },
+                    enabled = 'S' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -440,8 +466,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('T')
                     },
+                    enabled = 'T' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -458,8 +485,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('U')
                     },
+                    enabled = 'U' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -476,8 +504,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('V')
                     },
+                    enabled = 'V' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -494,8 +523,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('W')
                     },
+                    enabled = 'W' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -512,8 +542,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('X')
                     },
+                    enabled = 'X' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -529,8 +560,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('Y')
                     },
+                    enabled = 'Y' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)
@@ -547,8 +579,9 @@ fun Screen3(
 
                 OutlinedButton(
                     onClick = {
-                        intentos--
+                        clickLetras('Z')
                     },
+                    enabled = 'Z' !in deshabilitarBotones,
                     modifier = Modifier
                         .width(60.dp)
                         .height(60.dp)

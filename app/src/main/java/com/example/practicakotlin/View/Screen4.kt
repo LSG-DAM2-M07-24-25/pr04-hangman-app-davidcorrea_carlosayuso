@@ -15,14 +15,6 @@ import com.example.practicakotlin.Routes
 @Composable
 fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean) {
     Box(modifier = Modifier.fillMaxSize().background(Color.Blue)) {
-        /*
-        Text(
-            text = "Screen4 ${secretNumber}",
-            modifier = Modifier
-                .align(Alignment.Center)
-                .clickable
-                { navController.navigate(Routes.Screen1.route) })
 
-         */
     }
 }
