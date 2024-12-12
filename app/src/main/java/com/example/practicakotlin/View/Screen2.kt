@@ -153,7 +153,7 @@ fun AlertReglas(
     onDismissRequest: () -> Unit,
     onConfirmation: () -> Unit
 ) {
-    val reglasDelJuego = "\n1. Selecciona la dificultad.\n2. Completa las palabras antes de que el muñeco sea colgado.\n\nTienes 5 intentos antes de que el muñeco sea linchado"
+    val reglasDelJuego = "\n1. Selecciona la dificultad.\n2. Completa la palabra antes de que el muñeco sea linchado.\n\nTienes 5 intentos"
     val icono = painterResource(id = R.drawable.book_svgrepo_com)
 
     AlertDialog(
