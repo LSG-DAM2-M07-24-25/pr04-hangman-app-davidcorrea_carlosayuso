@@ -12,11 +12,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -33,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -45,14 +48,15 @@ import com.example.practicakotlin.Routes
 fun Screen2(navController: NavController) {
     var selectedDificultad by remember { mutableStateOf("") }
     var showDialog by remember { mutableStateOf(false) }
-    val iconPainter = painterResource(id = R.drawable._60172)
-    val reglasDelJuego = "Reglas del juego:\n\n1. Selecciona la dificultad.\n2. Completa las palabras antes de que el muñeco sea colgado.\n3. Diviértete y desafía tus habilidades."
+
 
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -74,18 +78,17 @@ fun Screen2(navController: NavController) {
             ) {
                 Text("Jugar")
             }
-            Spacer(modifier = Modifier.size(30.dp)) // Botón Ayuda para mostrar reglas
+            Spacer(modifier = Modifier.size(30.dp))
             Button(
-                onClick = {showDialog = true}
+                onClick = { showDialog = true }
             ) {
                 Text("Reglas")
             }
-            if(showDialog){
-                AlertDialogExample(onDismissRequest = { showDialog = false },
-                    onConfirmation = {  showDialog = false },
-                    dialogTitle = "Reglas del juego",
-                    dialogText = reglasDelJuego,
-                    icon = iconPainter)
+            if (showDialog) {
+                AlertDialogExample(
+                    onDismissRequest = {showDialog = false},
+                    onConfirmation = { showDialog = false }
+                )
 
             }
         }
@@ -99,8 +102,7 @@ fun PreviewScreen2() {
 }
 
 
-
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Dificultad(onDificultadSelected: (String) -> Unit) {
     var selectedText by remember { mutableStateOf("") }
@@ -115,15 +117,26 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
             onValueChange = { selectedText = it },
             enabled = false,
             readOnly = true,
+            textStyle = TextStyle(color = Color.Black),
+            placeholder = {Text(text = "Pulsa para seleccionar")},
+            shape = RoundedCornerShape(10.dp),
+            colors = TextFieldDefaults.colors(
+                focusedTextColor = Color.Green,
+                disabledTextColor = Color.DarkGray,
+                cursorColor = Color.Yellow ),
             modifier = Modifier
                 .clickable { expanded = true }
-                .background(Color.Black)
+
         )
 
-        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }, modifier = Modifier.background(Color.Black)) {
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
+            modifier = Modifier.background(Color.LightGray)
+        ) {
             dificultades.forEach { dificultad ->
                 DropdownMenuItem(
-                    text = { Text(text = dificultad, color = Color.White) },
+                    text = { Text(text = dificultad, color = Color.Black) },
                     onClick = {
                         expanded = false
                         selectedText = dificultad
@@ -134,24 +147,24 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
         }
     }
 }
+
 @Composable
 fun AlertDialogExample(
-
     onDismissRequest: () -> Unit,
-    onConfirmation: () -> Unit,
-    dialogTitle: String,
-    dialogText: String,
-    icon: Painter,
+    onConfirmation: () -> Unit
 ) {
+    val reglasDelJuego = "Reglas del juego:\n\n1. Selecciona la dificultad.\n2. Completa las palabras antes de que el muñeco sea colgado.\n3. Diviértete y desafía tus habilidades."
+    val icono = painterResource(id = R.drawable.book_svgrepo_com)
+
     AlertDialog(
         icon = {
-            Icon(icon, contentDescription = "Example Icon")
+            Icon(icono, contentDescription = "icono reglas", modifier = Modifier.size(40.dp))
         },
         title = {
-            Text(text = dialogTitle)
+            Text(text = "Reglas del Juego")
         },
         text = {
-            Text(text = dialogText)
+            Text(text = reglasDelJuego)
         },
         onDismissRequest = {
             onDismissRequest()
@@ -162,17 +175,9 @@ fun AlertDialogExample(
                     onConfirmation()
                 }
             ) {
-                Text("Confirm")
+                Text("Dale")
             }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = {
-                    onDismissRequest()
-                }
-            ) {
-                Text("Dismiss")
-            }
+
         }
     )
 }
