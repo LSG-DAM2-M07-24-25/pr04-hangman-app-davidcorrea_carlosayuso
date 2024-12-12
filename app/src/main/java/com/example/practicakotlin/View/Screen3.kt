@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavHostController
 import com.example.practicakotlin.R
+import com.example.practicakotlin.Routes
 import com.example.practicakotlin.ViewModel.PalabrasViewModel
 
 @Composable
@@ -37,6 +38,11 @@ fun Screen3(
 )  {
     var intentos by remember { mutableStateOf(5) }
     var deshabilitarBotones by remember { mutableStateOf(setOf<Char>()) }
+    var haGanado by remember { mutableStateOf(false) }
+
+    if (intentos == 0){
+        navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad))
+    }
 
     LaunchedEffect(dificultad) {
         viewModel.cargarPalabras(dificultad)
