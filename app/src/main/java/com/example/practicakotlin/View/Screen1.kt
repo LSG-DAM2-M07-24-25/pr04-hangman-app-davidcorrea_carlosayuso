@@ -34,7 +34,7 @@ fun Screen1(navController: NavHostController) {
     LaunchedEffect(Unit) {
         opacity.animateTo(
             targetValue = 1f,
-            animationSpec =  tween(durationMillis = 3500)
+            animationSpec =  tween(durationMillis = 2500)
         )
 
         //delay(2000)
