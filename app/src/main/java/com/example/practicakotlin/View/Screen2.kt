@@ -87,7 +87,8 @@ fun Screen2(navController: NavController) {
                 Text(
                     text = "Jugar",
                     fontSize = 18.sp,
-                    fontFamily = FontFamily.Serif// Tamaño del texto más grande
+                    fontFamily = FontFamily.Serif // Tamaño del texto más grande
+
                 )
 
             }
@@ -107,6 +108,7 @@ fun Screen2(navController: NavController) {
                     fontSize = 18.sp,
                     fontFamily = FontFamily.Serif
                 )
+
             }
 
             if (showDialog) {
