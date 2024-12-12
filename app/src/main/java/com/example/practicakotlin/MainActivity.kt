@@ -16,6 +16,7 @@ class MainActivity : ComponentActivity() {
 
     val palabrasController: PalabrasViewModel by viewModels<PalabrasViewModel>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
