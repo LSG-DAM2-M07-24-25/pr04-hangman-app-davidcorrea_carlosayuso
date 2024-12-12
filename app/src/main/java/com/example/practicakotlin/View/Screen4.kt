@@ -23,11 +23,9 @@ import com.example.practicakotlin.Routes
 fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificultad:String, palabraSeleccionada:String) {
     var mensaje: String
     var info: String
-    var palabra: String
 
     if (intentos == 0) {
         mensaje = "HAS PERDIDO"
-        palabra = palabraSeleccionada
     } else {
         mensaje = "¡FELICIDADES!"
     }
