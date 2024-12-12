@@ -25,7 +25,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import com.example.practicakotlin.ModelView.PalabrasController
 
 class MainActivity : ComponentActivity() {
-    val palabrasController: PalabrasController by viewModels<PalabrasController>()
+    //val palabrasController: PalabrasController by viewModels<PalabrasController>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
