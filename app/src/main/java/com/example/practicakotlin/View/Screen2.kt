@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -76,13 +77,13 @@ fun Screen2(navController: NavController) {
                 },
                 enabled = selectedDificultad.isNotEmpty()
             ) {
-                Text("Jugar")
+                Text("Jugar", fontFamily = FontFamily.Serif)
             }
             Spacer(modifier = Modifier.size(30.dp))
             Button(
                 onClick = { showDialog = true }
             ) {
-                Text("Reglas")
+                Text("Reglas", fontFamily = FontFamily.Serif)
             }
             if (showDialog) {
                 AlertReglas(
@@ -117,7 +118,7 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
             enabled = false,
             readOnly = true,
             textStyle = TextStyle(color = Color.Black),
-            placeholder = {Text(text = "Pulsa para seleccionar")},
+            placeholder = {Text(text = "Pulsa para seleccionar", fontFamily = FontFamily.Serif)},
             shape = RoundedCornerShape(10.dp),
             colors = TextFieldDefaults.colors(
                 focusedTextColor = Color.Green,
@@ -135,7 +136,7 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
         ) {
             dificultades.forEach { dificultad ->
                 DropdownMenuItem(
-                    text = { Text(text = dificultad, color = Color.Black) },
+                    text = { Text(text = dificultad, color = Color.Black, fontFamily = FontFamily.Serif) },
                     onClick = {
                         expanded = false
                         selectedText = dificultad
@@ -160,10 +161,10 @@ fun AlertReglas(
             Icon(icono, contentDescription = "icono reglas", modifier = Modifier.size(40.dp))
         },
         title = {
-            Text(text = "Reglas del Juego")
+            Text(text = "Reglas del Juego", fontFamily = FontFamily.Serif)
         },
         text = {
-            Text(text = reglasDelJuego)
+            Text(text = reglasDelJuego, fontFamily = FontFamily.Serif)
         },
         onDismissRequest = {
             onDismissRequest()
@@ -174,7 +175,7 @@ fun AlertReglas(
                     onConfirmation()
                 }
             ) {
-                Text("Dale")
+                Text("Dale", fontFamily = FontFamily.Serif)
             }
 
         }

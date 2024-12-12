@@ -26,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -51,7 +52,7 @@ fun Screen3(
     var palabraMostrada by remember { mutableStateOf("") }
 
     if (intentos == 0){
-        navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad, palabraSeleccionada))
+        navController.navigate(Routes.Pantalla4.createRoute(intentos, dificultad, palabraSeleccionada))
     }
 
     LaunchedEffect(dificultad) {
@@ -77,7 +78,7 @@ fun Screen3(
                     4 -> R.drawable.colgado_5_sinfondo
                     5 -> R.drawable.colgado_6_sinfondo
                     0 -> R.drawable.colgado_1_sinfondo
-                    else -> R.drawable.colgado_1_sinfondo // Imagen final si se agotan los intentos
+                    else -> R.drawable.colgado_1_sinfondo
                 }
             ),
             contentDescription = "Estado del ahorcado",
@@ -89,8 +90,9 @@ fun Screen3(
         // Mostrar palabra como guiones bajos
         Text(
             text = palabraMostrada,
-            fontSize = 30.sp, // Ajusta el tamaño de fuente aquí
-            fontWeight = FontWeight.Bold, // Opcional: haz que el texto sea más grueso
+            fontSize = 30.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.Serif,
             modifier = Modifier.padding(16.dp)
         )
 
@@ -106,7 +108,7 @@ fun Screen3(
 
                 if (!nuevaPalabraMostrada.contains('_')) {
                     haGanado = true
-                    navController.navigate(Routes.Pantalla4.createRoute(intentos, haGanado, dificultad, palabraSeleccionada))
+                    navController.navigate(Routes.Pantalla4.createRoute(intentos, dificultad, palabraSeleccionada))
                 }
             } else {
                 intentos--
@@ -151,7 +153,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "A",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -175,7 +178,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "B",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -199,7 +203,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "C",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -223,7 +228,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "D",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -247,7 +253,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "E",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -271,7 +278,8 @@ fun Screen3(
                     )
                 ) {
                     Text("F",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -295,7 +303,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "G",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -319,7 +328,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "H",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -343,7 +353,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "I",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -367,7 +378,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "J",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -391,7 +403,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "K",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -415,7 +428,8 @@ fun Screen3(
                     )
                 ) {
                     Text("L",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -438,7 +452,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "M",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -462,7 +477,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "N",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -486,7 +502,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "Ñ",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -510,7 +527,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "O",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -534,7 +552,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "P",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -558,7 +577,8 @@ fun Screen3(
                     )
                 ) {
                     Text("Q",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -582,7 +602,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "R",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -606,7 +627,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "S",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -630,7 +652,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "T",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -654,7 +677,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "U",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -678,7 +702,8 @@ fun Screen3(
                     )
                 ) {
                     Text(text = "V",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -702,7 +727,8 @@ fun Screen3(
                     )
                 ) {
                     Text("W",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -716,7 +742,7 @@ fun Screen3(
                         .width(60.dp)
                         .height(60.dp)
                         .constrainAs(x) {
-                            top.linkTo(quintaLinea) // Usamos la segunda línea aquí
+                            top.linkTo(quintaLinea)
                         },
                     shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -725,7 +751,8 @@ fun Screen3(
                     )
                 ) {
                     Text("X",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -749,7 +776,8 @@ fun Screen3(
                     )
                 ) {
                     Text("Y",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
 
@@ -773,7 +801,8 @@ fun Screen3(
                     )
                 ) {
                     Text("Z",
-                        color = Color.Black
+                        color = Color.Black,
+                        fontFamily = FontFamily.Serif
                     )
                 }
             }
@@ -782,7 +811,9 @@ fun Screen3(
             text = "Intentos: $intentos",
             fontSize = 30.sp, // Ajusta el tamaño de fuente aquí
             fontWeight = FontWeight.Bold, // Opcional: haz que el texto sea más grueso
+            fontFamily = FontFamily.Serif, // Cambia la fuente aquí (por ejemplo, Serif)
             modifier = Modifier.padding(16.dp)
         )
+
     }
 }
