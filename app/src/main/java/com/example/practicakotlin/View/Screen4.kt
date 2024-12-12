@@ -5,8 +5,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -67,18 +70,22 @@ fun Screen4(navController: NavController, intentos:Int, dificultad:String, palab
                 modifier = Modifier.padding(16.dp))
         }
 
+        Spacer(modifier = Modifier.size(30.dp))
+
         Button(
             onClick = {
                 navController.navigate(Routes.Pantalla3.createRoute(dificultad))
-            }
+            },shape = RoundedCornerShape(8.dp)
         ) {
             Text(text = "Jugar de nuevo", fontFamily = FontFamily.Serif)
         }
 
+        Spacer(modifier = Modifier.size(30.dp))
+
         Button(
             onClick = {
                 navController.navigate(Routes.Pantalla2.route)
-            }
+            },shape = RoundedCornerShape(8.dp)
         ) {
             Text(text = "Menú", fontFamily = FontFamily.Serif)
         }
