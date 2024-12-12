@@ -50,14 +50,13 @@ fun EntryPoint(navigationController: NavHostController, palabrasViewModel: Palab
             Routes.Pantalla4.route,
             arguments = listOf(
                 navArgument("intentos") { type = NavType.IntType },
-                navArgument("haGanado") { type = NavType.BoolType },
-                navArgument("dificultad") { type = NavType.StringType }
+                navArgument("dificultad") { type = NavType.StringType },
+                navArgument("palabra") { type = NavType.StringType }
             )
         ) { backStackEntry ->
             Screen4(
                 navController = navigationController,
                 intentos = backStackEntry.arguments?.getInt("intentos") ?: 0,
-                haGanado = backStackEntry.arguments?.getBoolean("haGanado") ?: false,
                 dificultad = backStackEntry.arguments?.getString("dificultad").orEmpty(),
                 palabraSeleccionada = backStackEntry.arguments?.getString("palabra").orEmpty()
 
