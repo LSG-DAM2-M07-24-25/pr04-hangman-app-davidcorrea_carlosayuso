@@ -4,7 +4,7 @@
 ### Empieza seleccionando una dificultad, entre fácil, medio y difícil. Pulsa una letra y verás si existe en la palabra o no, tienes hasta 5 intentos antes de que las milicias populares ajusticien al tirano opresor en la horca
 ### En tus manos está el poder para defender el antiguo regimen de las manos de vagos y maleantes
 
-![Pantalla 1](/screenshots/Screen1.png)
-![Pantalla 2](/screenshots/Screen2.png)
-![Pantalla 3](/screenshots/Screen3.png)
-![Pantalla 4](/screenshots/Screen4.png)
+![Pantalla 1](screenshots/Screen1.png)
+![Pantalla 2](screenshots/Screen2.png)
+![Pantalla 3](screenshots/Screen3.png)
+![Pantalla 4](screenshots/Screen4.png)
