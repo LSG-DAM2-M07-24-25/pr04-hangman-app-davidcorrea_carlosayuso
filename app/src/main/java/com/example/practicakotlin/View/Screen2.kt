@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BasicAlertDialog
@@ -39,6 +41,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.practicakotlin.R
@@ -70,20 +73,36 @@ fun Screen2(navController: NavController) {
             }
             // Botón Play para avanzar a la siguiente pantalla
             Button(
-
                 onClick = {
                     navController.navigate(Routes.Pantalla3.createRoute(selectedDificultad))
                 },
-                enabled = selectedDificultad.isNotEmpty()
+                enabled = selectedDificultad.isNotEmpty(),
+                modifier = Modifier
+                    .padding(16.dp) // Espacio alrededor del botón
+                    .height(60.dp) // Altura personalizada
+                    .width(200.dp) // Anchura personalizada
             ) {
-                Text("Jugar")
+                Text(
+                    text = "Jugar",
+                    fontSize = 18.sp // Tamaño del texto más grande
+                )
             }
+
             Spacer(modifier = Modifier.size(30.dp))
+
             Button(
-                onClick = { showDialog = true }
+                onClick = { showDialog = true },
+                modifier = Modifier
+                    .padding(16.dp)
+                    .height(60.dp)
+                    .width(200.dp)
             ) {
-                Text("Reglas")
+                Text(
+                    text = "Reglas",
+                    fontSize = 18.sp
+                )
             }
+
             if (showDialog) {
                 AlertReglas(
                     onDismissRequest = {showDialog = false},
