@@ -85,7 +85,7 @@ fun Screen2(navController: NavController) {
                 Text("Reglas")
             }
             if (showDialog) {
-                AlertDialogExample(
+                AlertReglas(
                     onDismissRequest = {showDialog = false},
                     onConfirmation = { showDialog = false }
                 )
@@ -102,7 +102,6 @@ fun PreviewScreen2() {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Dificultad(onDificultadSelected: (String) -> Unit) {
     var selectedText by remember { mutableStateOf("") }
@@ -149,11 +148,11 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
 }
 
 @Composable
-fun AlertDialogExample(
+fun AlertReglas(
     onDismissRequest: () -> Unit,
     onConfirmation: () -> Unit
 ) {
-    val reglasDelJuego = "Reglas del juego:\n\n1. Selecciona la dificultad.\n2. Completa las palabras antes de que el muñeco sea colgado.\n3. Diviértete y desafía tus habilidades."
+    val reglasDelJuego = "\n1. Selecciona la dificultad.\n2. Completa las palabras antes de que el muñeco sea colgado.\n\nTienes 5 intentos antes de que el muñeco sea linchado"
     val icono = painterResource(id = R.drawable.book_svgrepo_com)
 
     AlertDialog(
