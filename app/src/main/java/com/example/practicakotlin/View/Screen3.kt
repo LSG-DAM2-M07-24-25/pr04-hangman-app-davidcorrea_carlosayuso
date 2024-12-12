@@ -71,13 +71,13 @@ fun Screen3(
         Image(
             painter = painterResource(
                 id = when (intentos) {
-                    1 -> R.drawable.colgado_1_sinfondo
-                    2 -> R.drawable.colgado_2_sinfondo
-                    3 -> R.drawable.colgado_3_sinfondo
-                    4 -> R.drawable.colgado_4_sinfondo
-                    5 -> R.drawable.colgado_5_sinfondo
-                    0 -> R.drawable.colgado_6_sinfondo
-                    else -> R.drawable.colgado_6_sinfondo // Imagen final si se agotan los intentos
+                    1 -> R.drawable.colgado_2_sinfondo
+                    2 -> R.drawable.colgado_3_sinfondo
+                    3 -> R.drawable.colgado_4_sinfondo
+                    4 -> R.drawable.colgado_5_sinfondo
+                    5 -> R.drawable.colgado_6_sinfondo
+                    0 -> R.drawable.colgado_1_sinfondo
+                    else -> R.drawable.colgado_1_sinfondo // Imagen final si se agotan los intentos
                 }
             ),
             contentDescription = "Estado del ahorcado",
