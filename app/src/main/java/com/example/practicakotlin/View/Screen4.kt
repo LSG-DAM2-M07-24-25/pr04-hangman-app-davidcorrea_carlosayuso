@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -20,14 +21,12 @@ import androidx.navigation.NavController
 import com.example.practicakotlin.Routes
 
 @Composable
-fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificultad:String, palabraSeleccionada:String) {
+fun Screen4(navController: NavController, intentos:Int, dificultad:String, palabraSeleccionada:String) {
     var mensaje: String
     var info: String
-    var palabra: String
 
     if (intentos == 0) {
         mensaje = "HAS PERDIDO"
-        palabra = palabraSeleccionada
     } else {
         mensaje = "¡FELICIDADES!"
     }
@@ -43,24 +42,28 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
             text = mensaje,
             fontSize = 45.sp,
             fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.Serif,
             modifier = Modifier.padding(16.dp)
         )
 
         if (intentos == 0){
             Text(text = "La palabra era: " + palabraSeleccionada,
                 fontSize = 20.sp,
+                fontFamily = FontFamily.Serif,
                 modifier = Modifier.padding(16.dp))
         }
 
         if (intentos == 1){
-            info = "Te ha quedado " + intentos + " intento"
+            info = "Te ha sobrado " + intentos + " intento"
             Text(text = info,
                 fontSize = 20.sp,
+                fontFamily = FontFamily.Serif,
                 modifier = Modifier.padding(16.dp))
         }else if (intentos > 1){
-            info = "Te han quedado " + intentos + " intentos"
+            info = "Te han sobrado " + intentos + " intentos"
             Text(text = info,
                 fontSize = 20.sp,
+                fontFamily = FontFamily.Serif,
                 modifier = Modifier.padding(16.dp))
         }
 
@@ -69,7 +72,7 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
                 navController.navigate(Routes.Pantalla3.createRoute(dificultad))
             }
         ) {
-            Text(text = "Jugar de nuevo")
+            Text(text = "Jugar de nuevo", fontFamily = FontFamily.Serif)
         }
 
         Button(
@@ -77,7 +80,7 @@ fun Screen4(navController: NavController, intentos:Int, haGanado:Boolean, dificu
                 navController.navigate(Routes.Pantalla2.route)
             }
         ) {
-            Text(text = "Menu")
+            Text(text = "Menú", fontFamily = FontFamily.Serif)
         }
     }
 
