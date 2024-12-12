@@ -28,9 +28,14 @@ fun EntryPoint(navigationController: NavHostController, palabrasViewModel: Palab
     ) {
         composable(Routes.Pantalla1.route) { Screen1(navigationController) }
         composable(Routes.Pantalla2.route) { Screen2(navigationController) }
+
+
+
         composable(
             Routes.Pantalla3.route,
-            arguments = listOf(navArgument("dificultad") { type = NavType.StringType })
+            arguments = listOf(
+                navArgument("dificultad") { type = NavType.StringType }
+            )
         ) { backStackEntry ->
             Screen3(
                 viewModel = palabrasViewModel,
@@ -38,17 +43,23 @@ fun EntryPoint(navigationController: NavHostController, palabrasViewModel: Palab
                 dificultad = backStackEntry.arguments?.getString("dificultad").orEmpty()
             )
         }
+
+
+
         composable(
             Routes.Pantalla4.route,
             arguments = listOf(
                 navArgument("intentos") { type = NavType.IntType },
-                navArgument("haGanado") { type = NavType.BoolType }
+                navArgument("haGanado") { type = NavType.BoolType },
+                navArgument("dificultad") { type = NavType.StringType }
             )
         ) { backStackEntry ->
             Screen4(
-                navigationController,
-                backStackEntry.arguments?.getInt("intentos") ?: 0,
-                backStackEntry.arguments?.getBoolean("haGanado") ?: false
+                navController = navigationController,
+                intentos = backStackEntry.arguments?.getInt("intentos") ?: 0,
+                haGanado = backStackEntry.arguments?.getBoolean("haGanado") ?: false,
+                dificultad = backStackEntry.arguments?.getString("dificultad").orEmpty()
+
             )
         }
     }
