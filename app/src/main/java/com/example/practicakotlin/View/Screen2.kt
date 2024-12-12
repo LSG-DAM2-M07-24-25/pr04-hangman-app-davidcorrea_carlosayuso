@@ -72,22 +72,23 @@ fun Screen2(navController: NavController) {
             Dificultad { dificultad ->
                 selectedDificultad = dificultad
             }
+
             // Botón Play para avanzar a la siguiente pantalla
             Button(
                 onClick = {
                     navController.navigate(Routes.Pantalla3.createRoute(selectedDificultad))
-                },
+                },shape = RoundedCornerShape(8.dp),
                 enabled = selectedDificultad.isNotEmpty(),
                 modifier = Modifier
-                    .padding(16.dp) // Espacio alrededor del botón
-                    .height(60.dp) // Altura personalizada
-                    .width(200.dp) // Anchura personalizada
+                    .padding(16.dp)
+                    .height(50.dp)
+                    .width(180.dp)
             ) {
 
                 Text(
                     text = "Jugar",
                     fontSize = 18.sp,
-                    fontFamily = FontFamily.Serif // Tamaño del texto más grande
+                    fontFamily = FontFamily.Serif
 
                 )
 
@@ -96,11 +97,11 @@ fun Screen2(navController: NavController) {
             Spacer(modifier = Modifier.size(30.dp))
 
             Button(
-                onClick = { showDialog = true },
+                onClick = { showDialog = true },shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(16.dp)
-                    .height(60.dp)
-                    .width(200.dp)
+                    .height(40.dp)
+                    .width(140.dp)
             ) {
 
                 Text(
@@ -136,7 +137,7 @@ fun Dificultad(onDificultadSelected: (String) -> Unit) {
     val dificultades = listOf("Fácil", "Medio", "Difícil")
 
     Column(
-        Modifier.padding(20.dp, 80.dp)
+        Modifier.padding(20.dp, 50.dp)
     ) {
         OutlinedTextField(
             value = selectedText,
@@ -179,7 +180,7 @@ fun AlertReglas(
     onDismissRequest: () -> Unit,
     onConfirmation: () -> Unit
 ) {
-    val reglasDelJuego = "\n1. Selecciona la dificultad.\n2. Completa la palabra antes de que el muñeco sea linchado.\n\nTienes 5 intentos"
+    val reglasDelJuego = "\n1. Selecciona la dificultad.\n2. Completa la palabra antes de que el muñeco sea linchado.\n3.Tienes 5 intentos"
     val icono = painterResource(id = R.drawable.book_svgrepo_com)
 
     AlertDialog(
