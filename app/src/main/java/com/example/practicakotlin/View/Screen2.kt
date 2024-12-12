@@ -67,7 +67,7 @@ fun Screen2(navController: NavController) {
             // Botón Play para avanzar a la siguiente pantalla
             Button(
 
-                onClick = { 
+                onClick = {
                     navController.navigate(Routes.Pantalla3.createRoute(selectedDificultad))
                 },
                 enabled = selectedDificultad.isNotEmpty()
@@ -95,7 +95,7 @@ fun Screen2(navController: NavController) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewScreen2() {
-   // Screen2()
+    // Screen2()
 }
 
 
